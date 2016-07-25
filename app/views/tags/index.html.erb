@@ -1,5 +1,7 @@
 <% @tags.each do |tag| %>
   <p><%= link_to tag.name, tag_path(tag) %></p>
-  <p><%= link_to 'delete', tag_path(tag), method: :delete, data: {confirm: 'Really delete the article?'} %></p>
+  <% if logged_in? %>
+    <p><%= link_to 'delete', tag_path(tag), method: :delete, data: {confirm: 'Really delete the article?'} %></p>
+  <% end %>
   <br>
 <% end %>
